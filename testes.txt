@@ -1,0 +1,172 @@
+Compressão do compressor:
+Para testar a compressão do compressor siga os seguintes passos:
+1. Conecte o manômetro à linha de baixa pressão/sucção
+2. Meça a pressão durante o funcionamento do compressor
+3. Compare os resultados com os valores recomendados pelo fabricante
+4. Verifique se há perda de pressão, o que pode indicar problemas no compressor
+
+Sensores:
+***É preciso o multímetro, termômetro e a tabela de sensores do fabricante***
+<br>Para testar o sensor, siga estes passos:
+1. Remova o sensor da placa controladora (da evaporadora ou da condensadora, dependendo do sensor a testar)
+1. Meça a resistência do sensor com um multímetro.
+2. Encoste as ponteiras de teste nos polos do conector do sensor
+3. Faça a leitura da temperatura ambiente
+4. Compare a leitura com a tabela de especificações.
+Caso o sensor não apresente o valor indicado na tabela, ou apresente diferença maior que 2%, substitua o sensor. 
+5. Verifique o posicionamento correto do sensor.
+
+
+Superaquecimento:
+***Em média, o Superaquecimento deve ficar entre 5 e 11 K***
+<br>**Passos:**
+1. Ligue o aparelho de ar-condicionado
+2. Conecte o manômetro na linha de baixa pressão
+3. Espere entre 15 a 20 minutos, até estabilizar a pressão
+4. **Se você tiver um manifold digital:**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1. Plugue o termopar após a válvula de serviço
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.2. Siga as instruções do seu manifold para verificar o valor do Superaquecimento
+5. **Se seu manifold for analógico:**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1. Coloque um termômetro na linha de baixa, próximo à válvula de serviço
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2. Anote a temperatura da linha de baixa 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3. Verifique a pressão da linha de baixa
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4. Com a pressão de baixa use um aplicativo para transformar essa pressão em temperatura
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.5. Com a temperatura convertida, subtraia a temperatura obtida com o termômetro da temperatura obtida pelo aplicativo
+<br>***Se Abaixo de 5 -> a quantidade de líquido dentro do evp está alta, tem que retirar fluido***
+***Se Acima de 11 -> a quantidade de líquido dentro de evp está baixa, tem que adicionar fluido***
+
+
+Comunicação entre as unidades:
+***Verifique se o cabo PP está sem interrupções e se está com a ligação correta***
+***Desligue o disjuntor por 2 minutos e depois religue***
+<br>***Com o multímetro na escala de corrente contínua ou DC***
+1. Coloque a ponteira preta no S do borne da evaporadora
+2. Coloque a ponteira vermelha no N do borne da evaporadora
+<br>O multímetro exibirá tesão que deverá variar entre valores positivos e negativos.
+<br>***Se os valores forem sempre positivos, o problema está na unidade externa, portanto verifique:***
+a) revise a ligação elétrica, conforme diagrama elétrico
+b) meça a resistência do reator, que deve ser entre 0 e 1 Ohms
+c) ou substitua a placa da condensadora
+<br>***Se os valores forem sempre negativos, o problema está na unidade interna, portanto:***
+a) revise a revise a ligação elétrica, conforme diagrama elétrico
+b) verifique as conexões L, N, S entre a borneira e a placa eletrônica 
+c) ou substitua a placa da evaporadora
+<br>***Outras causas de falha de Comunicação:***
+1. Falta de aterramento
+2. Ruído de sinal, se houver algum equipamento que interfira no cabo PP
+3. Ruído de tesnão: se o equipamento estiver ligado na mesma rede que outro equipamento que provoque ruído de tensão (ex: forno de microondas)
+
+
+
+Motoventilador da Evaporadora:
+***Consiste em testar a placa eletrônica e a bobina***
+<br>
+1. Ligue o equipamento
+2. Coloque o ventilador na velocidade baixa
+3. Coloque o multímetro no modo tensão
+4. Na placa controladora encoste as ponteiras de teste do multímetro na saída de tensão do conector. O multímetro mostrará a tensão de saída da placa para o motoventilador. 
+5. Aumente a velocidade do ventilador e observe a tensão, que deverá aumentar e estabilizar. 
+Caso isso não aconteça ou não exiba nenhum dado, indica que a placa eletrônica está com defeito.
+6. Se a placa não apresentar defeito, realize o teste da bobina do motoventilador.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.1. Desligue o disjuntor
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.2. Retire o conector do motoventilador da placa da evaporadora
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.3. Coloque o multímetro no modo de resistência ohmica
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.4. Encoste as ponteiras do multímetro nos polos vermelho e preto do conector
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.5. O multímetro deve exibir algum valor. Caso não exiba, o motoventilador está com defeito. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.6. Se o multímetro exibir alguma resistência, o motoventilador está funcionamento corretamente e o defeito está no sensor do conjunto. Todo o conjunto deve ser substituído
+
+
+Motoventilador da Condensadora Convencional:
+***Consiste em testar a entrada de energia, o capacitor e a bobina***
+<br>
+****Testar entrada de energia****
+1. Coloque o multímetro na escala de tensão
+2. Teste a entrada de energia na borneira da condensadora
+3. A tensão deve ser de 220V, com 10% para mais ou para menos
+<br>***Teste do capacitor***
+1. Desligue o disjuntor
+2. Com um capacímetro na escala igual ou acima do microfarad do capacitor
+3. Conecte uma ponteira do capacímetro no polo C e a outra no ventilador 
+4. Verifique se a leitura está dentro da escala do capacitor
+Caso o capacitor não apresnte defeito, o motoventilador deve ser testado
+<br>***Teste do motoventilador***
+1. Coloque o multímetro no modo de resistência ohmica
+2. Encoste uma das ponteiras de teste no cabo que estava conectado no borne C do capacitor
+3. Encoste a outra ponteira de teste no cabo que sai da borneira para o motoventilador
+4. Caso o multímetro não exiba nenhum valor, o motoventilador está com defeito
+
+
+Motoventilador da Condensadora Inverter:
+***Consite em testar a placa eletrônica, bobina e o capacitor***
+<br>***Testar a tensão da placa***
+1. Para testar a tensão da placa controladora da condensadora, localize o conector do motoventilador.
+2. Ligue o equipamento
+3. Coloque o multímetro no modo de tensão 
+4. Encoste as ponteiras do multímetro nas saídas de tensão do conector nos cabos vermelho e preto (sem retirá-lo da placa)
+5. O multímetro exibirá a saída de tensão para o motoventilador. Caso não exiba, a placa está com defeito.
+<br>***Se a placa não aparesentar defeito, testar a bobina do motoventilador***
+1. Desligue o disjuntor
+2. Remova o conector do motoventilador da placa eletrônica
+3. Coloque o multímetro na escala de resistência ohmica
+4. Encoste as ponteiras de teste nos polos vermelho e preto do conector
+5. Caso apareça alguma resistência, o capacitor deve ser testado.
+<br>***Teste do capacitor***
+1. Desconecte os fios do capacitor
+2. Use o capacímetro
+3. Meça o capacitor e verifique o resultado
+4. Se não aparecer nenhum valor, o capacitor está com defeito
+
+
+Válvula Reversora:
+***Só deve ser realizado em aparelhos que tenham modo aquecimento***
+***Com o multímetro no modo de tensão***
+<br>
+***Teste da entrada de energia***
+1. Teste a entrada de energia da válvula, com a ponteira preta do multímetro no borne 2(N) da condensadora e a ponteira vermelha no borne 4
+2. O valor deve ser 220V
+3. Ligue o equipamento
+4. Desconecte os terminais da bobina da válvula reversora 
+5. Encoste as ponteiras de teste do multímetro nos polos
+6. O multímetro deve exibir 220V. Caso não exibir esse valor, a alimentação até a válvula está com algum defeito.
+7. Se a tensão estiver correta, a bobin da válvula deve ser testada
+<br>***Teste da bobina da válvula***
+1. Coloque o multímetro no modo de resistência ohmica 
+2. Encoste as ponteiras nos polos da bobina
+3. Observe o multímetro, caso não exiba nenhum valor, a bobina está com defeito.
+<br>***Testar a temperatura dos tubos da válvula reversora antes e depois da energização da bobina***
+Quando existe um problema interno na bobina da válvula reversora, as temperaturas não se alteram após a energização da bobina.
+Caso haja alteração de temperatura, a válvula deve ser substituída.
+
+
+Aparelho não liga:
+Passos: 
+1. Verifique se o equipamento tem a tensão adequada e se o disjuntor não está desarmado
+2. Verifique também a tensão na entrada e saída do disjuntor
+3. Na borneira da condensadora, encoste as ponteiras do multímetro em L e N. A tensão deverá ser de 220V, com varição de 10% para mais ou para menos
+4. Na borneira da evaporadora meça a tensão entre os bornes L e N. Deverá ser de 220V, com variação de 10% para mais ou para menos
+5. Se a alimentação estiver Ok, fazer o teste do controle remoto usando a câmera do celular para ver se o sensor do controle 'acende'. Caso não acenda, o controle pode estar com defeito.
+6. Tente o acionamento manual, se o equipamento ligar então o problema está na placa receptora
+
+
+Teste de Compressor Inverter:
+***Deve-se verificar a saída da placa controladora, da bobina e de massa do compressor***
+<br>***Teste de Saída da Placa***
+1. Ligue o equipamento
+2. Coloque o multímetro no modo de tensão
+3. Localize o conector do compressor na placa
+4. Teste os 3 fios do conector (sem retirar da placa)
+5. Os 3 fios devem passar a mesma tensão, caso contrário a placa está com defeito
+<br>***Teste da Bobina do Compressor***
+1. Desligue o disjuntor
+2. Coloque o multímetro no modo de resistência ohmica 
+3. Desconecte o conector da placa
+4. Teste os 3 terminais do compressor
+5. Os terminais devem passar a mesma resistência, com tolerância de no máximo 10%
+6. Se não houver resistência, o compressor está com defeito. Se a leitura estiver correta, deve ser feito o teste de massa
+<br>***Teste de Massa do Compressor***
+1. Com o aparelho desligado, retire os 3 conectores do compressor
+2. Faça o teste entre os terminais do compressor e a carcaça
+3. Não deve apresentar continuidade
+4. Se apresentar continuidade, o compressor está com defeito
+
+
