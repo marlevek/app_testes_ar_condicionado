@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 
-st.set_page_config('Testes em Ar Condiciionado', page_icon=':scientist:')
+st.set_page_config('Testes em Ar Condiciionado', page_icon=':test_tube:')
 
 
 # Função para carregar as instruções de teste a partir de um arquivo txt
@@ -34,10 +34,10 @@ with st.sidebar:
     st.title('Selecione os dados')
     fabricante = st.selectbox('Fabricante', ['selecione...', 'LG', 'MIDEA'])
     modelo = st.selectbox('Modelo', ['selecione...', 'Hi Wall', 'Teto', 'Cassete'])
-    tipo_teste = st.selectbox('Tipo de Teste', ['selecione...', 'Aparelho não liga','Compressão do compressor', 'Comunicação entre as unidades', 'Motoventilador da Condensadora Convencional', 'Motoventilador da Condensadora Inverter', 'Motoventilador da Evaporadora', 'Sensores', 'Superaquecimento','Teste de Compressor Inverter', 'Válvula Reversora'])
+    tipo_teste = st.selectbox('Tipo de Teste', ['selecione...', 'Aparelho não liga','Compressão do compressor', 'Comunicação entre as unidades', 'Motoventilador da Condensadora Convencional', 'Motoventilador da Condensadora Inverter', 'Motoventilador da Evaporadora', 'Rendimento do Aparelho', 'Sensores', 'Superaquecimento','Teste de Compressor Inverter', 'Válvula Reversora'])
     
 
-st.title('**Testes em Ar Condicionado**')   
+st.title('**Testes em Ar Condicionado** :male-mechanic:')   
 st.write('''
              Obs.: Para os testes é necessário ter os seguintes instrumentos:  
              1. Multímetro
