@@ -1,0 +1,6 @@
+o que tiver imagem, fazer ele buscar a imagem na pasta imagens_LG e exibir o teste 
+
+o que não tiver imagem exibir texto 
+
+no testesAC.py deve ter uma função que selecione o fabricante e só mostre os testes desse fabricante e de acordo com o modelo escolhido
+
