@@ -34,12 +34,12 @@ with st.sidebar:
     st.title('Selecione os dados')
     fabricante = st.selectbox('Fabricante', ['selecione...', 'LG', 'MIDEA'])
     modelo = st.selectbox('Modelo', ['selecione...', 'Hi Wall', 'Teto', 'Cassete'])
-    tipo_teste = st.selectbox('Tipo de Teste', ['selecione...', 'Aparelho não liga','Compressão do compressor', 'Comunicação entre as unidades', 'Motoventilador da Condensadora Convencional', 'Motoventilador da Condensadora Inverter', 'Motoventilador da Evaporadora', 'Rendimento do Aparelho', 'Sensores', 'Superaquecimento','Teste de Compressor Inverter', 'Válvula Reversora'])
+    tipo_teste = st.selectbox('Tipo de Teste', ['selecione...', 'Aparelho não liga','Compressão do compressor', 'Comunicação entre as unidades', 'Disjuntor Desarmando', 'Evaporador Congelando', 'Motoventilador da Condensadora Convencional', 'Motoventilador da Condensadora Inverter', 'Motoventilador da Evaporadora', 'Rendimento do Aparelho', 'Sensores', 'Superaquecimento','Teste de Compressor Inverter', 'Válvula Reversora'])
     
 
 st.title('**Testes em Ar Condicionado** :male-mechanic:')   
 st.write('''
-             Obs.: Para os testes é necessário ter os seguintes instrumentos:  
+             Obs.: Para alguns testes é necessário ter os seguintes instrumentos:  
              1. Multímetro
              2. Alicate Amperímetro
              3. Conjunto Manifold
