@@ -169,4 +169,28 @@ Teste de Compressor Inverter:
 3. Não deve apresentar continuidade
 4. Se apresentar continuidade, o compressor está com defeito
 
+Rendimento do Aparelho:
+***Passos:***
+1. Com um termômetro medir a entrada e a saída de ar na evaporadora
+2. A diferença deve ficar entre 8 e 13ºC
+<br>****Valor abaixo de 8ºC indica que o aparelho está sem Rendimento****
+<br>****Valor acima de 13ºC, pode ser problema de vazão de ar. Baixa vazão de ar faz com que a diferença de temperatura aumente mas o ar não consegue refrigerar o ambiente.****
+
+Disjuntor Desarmando:
+***Passos:***
+1. Tire as cargas do condensador (compressor, ventilador, contator)
+2. Ligue o disjuntor e energize o equipamento (assim estará só alimentando o circuito de comando). Se não desarmar o contator, signinfica que o problema está no circuito de potência (compressor ou ventilador)
+3. Fazer o teste de continuidade nos bornes do compressor e também para massa e para o motor do ventilador (cada pino dele). Se der zero, está em curto
+4. Verifique a integridade dos cabos do compressor
+5. Verifique se o disjuntor está em bom estado
+6. Verifique se os cabos estão firmemente conectados
+
+Evaporador Congelando:
+***Por que a serpentina do evaporador congela:***
+1. Aparelho sub ou superdimensionado
+2. Falta de circulação de ar
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se o fluxo de ar for fraco pode haver muita sujeira na serpentina e turbina ou até mesmo vazamento de fluido refrigerante. Faça a limpeza e/ou verifique a pressão do sistema.
+3. Pode ser obstrução no tubo capilar ou no filtro secador
+4. Pode ser condensador ligado direto, não desliga. Nesse caso pode ser que o relé da placa do evaporador esteja travado na opção continuidade (pode-se bater nele para destravar) ou substituí-lo. Se for inverter, o relé travado pode ser o da placa da condensadora ou contatora travada
+
 
