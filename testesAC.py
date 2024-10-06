@@ -8,12 +8,14 @@ st.set_page_config('Testes em Ar Condiciionado', page_icon=':test_tube:')
 # Função para capturar áudio do navegador
 def audio_recorder():
     st.write("Clique no botão abaixo para gravar seu áudio.")
-
-    # Criar um botão para iniciar a gravação
-    start_recording = st.button("Gravar Áudio")
     
-    if start_recording:
-        # Exibir o componente de gravação de áudio
+    # Variável de estado para controlar a gravação
+    if 'recording' not in st.session_state:
+        st.session_state.recording = False
+
+    # Botão para iniciar/parar a gravação
+    if st.button("Iniciar Gravação"):
+        st.session_state.recording = True
         st.markdown(
             """
             <script>
@@ -45,10 +47,11 @@ def audio_recorder():
                 mediaRecorder.start();
                 st.write("Gravando...");
 
-                // Parar a gravação após 5 segundos
-                setTimeout(() => {
+                // Função para parar a gravação ao clicar no botão
+                document.getElementById('stop-button').onclick = function() {
                     mediaRecorder.stop();
-                }, 5000);
+                    st.session_state.recording = false;
+                };
             }
 
             window.onload = function() {
@@ -59,12 +62,13 @@ def audio_recorder():
             unsafe_allow_html=True
         )
 
-        st.write("Gravação finalizada.")
-        
-        # Receber o áudio gravado
-        audio_base64 = st.session_state.get('audio_base64', None)
-        if audio_base64:
-            st.audio(audio_base64, format='audio/wav')
+    if st.session_state.recording:
+        st.markdown("<button id='stop-button'>Parar Gravação</button>", unsafe_allow_html=True)
+    
+    # Receber o áudio gravado
+    audio_base64 = st.session_state.get('audio_base64', None)
+    if audio_base64:
+        st.audio(audio_base64, format='audio/wav')
 
 # Executar a função de gravação de áudio
 audio_recorder()
