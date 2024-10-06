@@ -1,60 +1,73 @@
 import streamlit as st
 import numpy as np
-import sounddevice as sd
-import scipy.io.wavfile
-import speech_recognition as sr
 import os
+import base64
 
 st.set_page_config('Testes em Ar Condiciionado', page_icon=':test_tube:')
 
-# Função para carregar as instruções de teste a partir de um arquivo txt
-def carregar_instrucoes(tipo_teste):
-    try:
-        with open('testes.txt', 'r', encoding='utf-8') as file:
-            conteudo = file.read()
-        
-        # Dividir o conteúdo por seções
-        instrucoes = conteudo.split("\n\n")  # Divide por parágrafos
+# Função para capturar áudio do navegador
+def audio_recorder():
+    st.write("Clique no botão abaixo para gravar seu áudio.")
 
-        # Criar um dicionário para armazenar as instruções
-        instrucoes_dict = {}
-        for instrucao in instrucoes:
-            if instrucao.strip():  # Ignora seções vazias
-                titulo, texto = instrucao.split(":", 1)
-                instrucoes_dict[titulo.strip()] = texto.strip()
-
-        # Retornar as instruções do tipo de teste solicitado
-        return instrucoes_dict.get(tipo_teste, "Instruções não encontradas.")
-
-    except FileNotFoundError:
-        return "Arquivo de instruções não encontrado."
-    except Exception as e:
-        return f"Erro ao ler o arquivo: {str(e)}"
-
-# Função para capturar áudio e salvar como um arquivo .wav
-def capturar_audio(duracao=5, taxa_amostragem=16000, arquivo="audio.wav"):
-    st.write("Gravando...")
-    audio = sd.rec(int(duracao * taxa_amostragem), samplerate=taxa_amostragem, channels=1, dtype='int16')
-    sd.wait()  # Espera o áudio terminar de gravar
-    scipy.io.wavfile.write(arquivo, taxa_amostragem, audio)
-    st.write(f"Gravação salva como {arquivo}")
+    # Criar um botão para iniciar a gravação
+    start_recording = st.button("Gravar Áudio")
     
+    if start_recording:
+        # Exibir o componente de gravação de áudio
+        st.markdown(
+            """
+            <script>
+            let mediaRecorder;
+            let audioChunks = [];
 
-# Função para reconhecer fala usando o arquivo de áudio gravado
-def reconhecer_fala(arquivo="audio.wav"):
-    recognizer = sr.Recognizer()
-    with sr.AudioFile(arquivo) as source:
-        audio = recognizer.record(source)  # Lê o áudio do arquivo
-    try:
-        texto = recognizer.recognize_google(audio, language="pt-BR")
-        st.write("Você disse: " + texto)
-        return texto
-    except sr.UnknownValueError:
-        st.write("Google Speech Recognition não entendeu o áudio")
-        return None
-    except sr.RequestError as e:
-        st.write(f"Erro ao conectar ao serviço de reconhecimento: {e}")
-        return None
+            async function startRecording() {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = function(event) {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = function() {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    const url = URL.createObjectURL(audioBlob);
+                    const audio = new Audio(url);
+                    audio.play();
+
+                    const reader = new FileReader();
+                    reader.readAsDataURL(audioBlob);
+                    reader.onloadend = function() {
+                        const base64data = reader.result;
+                        window.parent.postMessage(base64data, "*");
+                    };
+                };
+
+                mediaRecorder.start();
+                st.write("Gravando...");
+
+                // Parar a gravação após 5 segundos
+                setTimeout(() => {
+                    mediaRecorder.stop();
+                }, 5000);
+            }
+
+            window.onload = function() {
+                startRecording();
+            }
+            </script>
+            """,
+            unsafe_allow_html=True
+        )
+
+        st.write("Gravação finalizada.")
+        
+        # Receber o áudio gravado
+        audio_base64 = st.session_state.get('audio_base64', None)
+        if audio_base64:
+            st.audio(audio_base64, format='audio/wav')
+
+# Executar a função de gravação de áudio
+audio_recorder()
 
 
 # Opções para o selectbox
